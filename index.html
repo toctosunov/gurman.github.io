@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/css/menu.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header class="conteiner">
+            <span class="logo">logo</span>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#" onclick="showSection('fast-food')">Фаст фуд</a></li>
+                    <li><a href="#" onclick="showSection('asia')">Азиатская кухня</a></li>
+                    <li><a href="#" onclick="showSection('europe')">Европейская кухня</a></li>
+                    <li><a href="#" onclick="showSection('drinks')">Напитки</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+
+        <div class="conteiner trending" id="fast-food">
+
+            <div class="games">
+
+                <div class="block">
+                    <img src="/img/03.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/burger.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/pizza.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="conteiner trending" id="asia">
+            <div class="games">
+
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="conteiner trending" id="europe">
+            <div class="games">
+
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="conteiner trending" id="drinks">
+            <div class="games">
+
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+                <div class="block">
+                    <img src="/img/game1.jpg" alt="">
+                    <span> Название:</span>
+                    <span> Цена: 200сом</span>
+                </div>
+
+
+            </div>
+        </div>
+
+        <script>
+            function showSection(sectionId) {
+                // Скрываем все секции
+                const sections = document.querySelectorAll('.trending');
+                sections.forEach(section => section.style.display = 'none');
+
+                // Показываем нужную секцию
+                document.getElementById(sectionId).style.display = 'block';
+
+                // Обновляем активный пункт меню
+                document.querySelectorAll("nav ul li").forEach(li => li.classList.remove("active"));
+                
+                // Находим активную ссылку и добавляем `active` к `li`
+                document.querySelector(`nav ul li a[href="#"][onclick="showSection('${sectionId}')"]`)?.parentElement.classList.add("active");
+
+                // Закрываем меню на мобильных после выбора
+                document.querySelector("nav ul").classList.remove("active");
+            }
+
+            
+            function toggleMenu() {
+                document.querySelector("nav ul").classList.toggle("active");
+                window.onload = () => showSection('fast-food');
+            }
+
+        </script>
+
+
+    </div>
+
+
+</body>
+
+</html>
